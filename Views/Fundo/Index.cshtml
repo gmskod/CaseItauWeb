@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CaseItauWeb2.Models.Fundo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cnpj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.codigoTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nomeTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patrimonio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cnpj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigoTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.patrimonio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.codigo">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.codigo">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.codigo">Deletar</a> |
+                <a asp-action="Movimentar" asp-route-id="@item.codigo">Movimentar Patrimonio</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
